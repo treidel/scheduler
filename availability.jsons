@@ -1,0 +1,9 @@
+{"id":"32fece10-b448-11e7-bfbd-4b4076187c0b","availability":["1","2"],"time":"2017-10-18T20:00:00Z","location":"GRC-A"}
+{"id":"40fed046-b448-11e7-b601-e3341b06074c","availability":["1","2"],"time":"2017-10-19T21:00:00Z","location":"GRC-B"}
+{"id":"53fe63a0-b448-11e7-b02d-cf63ea75c20a","availability":["1","2"],"time":"2017-10-25T20:00:00Z","location":"GRC-A"}
+{"id":"60814994-b448-11e7-8d92-9b7b72f9cdf9","availability":["1","2"],"time":"2017-10-18T20:00:00Z","location":"JLA"}
+{"id":"6dd2cb2c-b448-11e7-9a1f-cf3c7bc7a5d5","availability":["1","2"],"time":"2017-10-20T20:00:00Z","location":"JLA"}
+{"id":"7c3299fe-b448-11e7-8c0c-173f78b24d56","availability":["1","2"],"time":"2017-10-10T20:00:00Z","location":"JLA"}
+{"id":"b9bcc6c2-b50c-11e7-8afd-67c695d65f55","availability":["3"],"time":"2017-10-10T09:00:00Z","location":"CP-1"}
+{"id":"dd1b82ac-b50c-11e7-bd4b-9bba2d8d5403","availability":["3"],"time":"2017-10-11T10:00:00Z","location":"CP-2"}
+{"id":"f63505ba-b50c-11e7-8502-73ca960722f2","availability":["3"],"time":"2017-10-25T20:00:00Z","location":"CP-1"}
