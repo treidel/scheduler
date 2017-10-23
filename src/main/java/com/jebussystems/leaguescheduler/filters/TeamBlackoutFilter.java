@@ -19,7 +19,7 @@ public class TeamBlackoutFilter extends ScheduleFilterBase<TeamSchedule> impleme
 	@Override
 	public void configure(JobConf job) {
 		// see if we have a blackout configured
-		String json = job.get(TeamBlackout.TEAM_BLACKOUT_PROPERTY);
+		String json = job.get(TeamBlackout.TEAM_BLACKOUTS_PROPERTY);
 		if (null != json) {
 			// parse the teams
 			Type collectionType = new TypeToken<Collection<TeamBlackout>>() {
@@ -46,7 +46,7 @@ public class TeamBlackoutFilter extends ScheduleFilterBase<TeamSchedule> impleme
 					Calendar gameslotCalendar = Calendar.getInstance();
 					gameslotCalendar.setTime(scheduleEntry.getGameSlot().getTime());
 					Calendar blackoutCalendar = Calendar.getInstance();
-					blackoutCalendar.setTime(blackout.getDay());
+					blackoutCalendar.setTime(blackout.getDate());
 					boolean sameDay = gameslotCalendar.get(Calendar.YEAR) == blackoutCalendar.get(Calendar.YEAR)
 							&& gameslotCalendar.get(Calendar.DAY_OF_YEAR) == blackoutCalendar.get(Calendar.DAY_OF_YEAR);
 					if (true == sameDay) {

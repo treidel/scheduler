@@ -3,26 +3,26 @@ package com.jebussystems.leaguescheduler.entities;
 import java.util.Date;
 
 public class TeamBlackout {
-	public static final String TEAM_BLACKOUT_PROPERTY = "TEAM_BLACKOUTS";
+	public static final String TEAM_BLACKOUTS_PROPERTY = "TEAM_BLACKOUTS";
 
 	private final String team;
-	private final Date day;
+	private final Date date;
 
-	public TeamBlackout(String team, Date day) {
+	public TeamBlackout(String team, Date date) {
 		this.team = team;
-		this.day = day;
+		this.date = date;
 	}
 
 	public String getTeam() {
 		return team;
 	}
 
-	public Date getDay() {
-		return day;
+	public Date getDate() {
+		return date;
 	}
 
 	@Override
 	public String toString() {
-		return "[" + "team=" + team + ",day=" + day.toString() + "]";
+		return "[" + "team=" + team + ",date=" + date.toString() + "]";
 	}
 }
