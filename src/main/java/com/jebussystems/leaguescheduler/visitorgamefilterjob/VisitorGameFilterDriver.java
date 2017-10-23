@@ -22,6 +22,7 @@ import org.apache.log4j.Logger;
 
 import com.google.gson.reflect.TypeToken;
 import com.jebussystems.leaguescheduler.entities.Team;
+import com.jebussystems.leaguescheduler.entities.TeamBlackout;
 
 public class VisitorGameFilterDriver {
 
@@ -31,6 +32,7 @@ public class VisitorGameFilterDriver {
 	private static final String INPUT_PARAM = "input";
 	private static final String OUTPUT_PARAM = "output";
 	private static final String TEAMS_PARAM = "teams";
+	private static final String BLACKOUTS_PARAM = "blackouts";
 
 	public static void main(String[] args) throws Exception {
 
@@ -39,6 +41,7 @@ public class VisitorGameFilterDriver {
 		options.addOption(INPUT_PARAM, true, "input file(s)");
 		options.addOption(OUTPUT_PARAM, true, "output folder");
 		options.addOption(TEAMS_PARAM, true, "JSON file containing the input teams");
+		options.addOption(BLACKOUTS_PARAM, true, "JSON file containing the team blackout periods");
 
 		// parse the comand line
 		CommandLineParser parser = new GnuParser();
@@ -60,6 +63,7 @@ public class VisitorGameFilterDriver {
 			LOGGER.error(TEAMS_PARAM + " parameter not provided");
 			return;
 		}
+		String blackoutsFile = cmd.getOptionValue(BLACKOUTS_PARAM);
 
 		// create the job configuraton
 		JobConf conf = new JobConf(VisitorGameFilterDriver.class);
@@ -69,14 +73,24 @@ public class VisitorGameFilterDriver {
 		conf.setOutputValueClass(Text.class);
 
 		// read in and parse the list of teams
-		Reader reader = new FileReader(new File(teamsFile));
-		Type collectionType = new TypeToken<Collection<Team>>() {
+		Reader teamsReader = new FileReader(new File(teamsFile));
+		Type teamsCollectionType = new TypeToken<Collection<Team>>() {
 		}.getType();
-		Collection<Team> teams = Team.GSON.fromJson(reader, collectionType);
+		Collection<Team> teams = Team.GSON.fromJson(teamsReader, teamsCollectionType);
 
 		// store the list of teams in the job context
 		conf.set(Team.TEAMS_PROPERTY, Team.GSON.toJson(teams));
 
+		// read in and parse the list of blackouts
+		if (null != blackoutsFile) {
+			Reader blackoutsReader = new FileReader(new File(blackoutsFile));
+			Type blackoutsCollectionType = new TypeToken<Collection<TeamBlackout>>() {
+			}.getType();
+			Collection<TeamBlackout> blackouts = Team.GSON.fromJson(blackoutsReader, blackoutsCollectionType);
+
+			// store the list of teams in the job context
+			conf.set(TeamBlackout.TEAM_BLACKOUTS_PROPERTY, Team.GSON.toJson(blackouts));
+		}
 		// configure the mapper + reducer classes
 		conf.setMapperClass(VisitorGameFilterMapper.class);
 		conf.setReducerClass(VisitorGameFilterReducer.class);
