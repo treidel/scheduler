@@ -28,7 +28,7 @@ public class Serializer {
 	}
 
 	private static class DateAdapter implements JsonDeserializer<Date>, JsonSerializer<Date> {
-		static private final DateFormat ISO8601FORMAT = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.US);
+		static private final DateFormat ISO8601FORMAT = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.US);
 
 		@Override
 		public JsonElement serialize(Date src, Type typeOfSrc, JsonSerializationContext context) {
