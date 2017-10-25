@@ -1,9 +1,108 @@
-{"id":"32fece10-b448-11e7-bfbd-4b4076187c0b","availability":["1","2"],"time":"2017-10-18T20:00:00Z","location":"GRC-A"}
-{"id":"40fed046-b448-11e7-b601-e3341b06074c","availability":["1","2"],"time":"2017-10-19T21:00:00Z","location":"GRC-B"}
-{"id":"53fe63a0-b448-11e7-b02d-cf63ea75c20a","availability":["1","2"],"time":"2017-10-25T20:00:00Z","location":"GRC-A"}
-{"id":"60814994-b448-11e7-8d92-9b7b72f9cdf9","availability":["1","2"],"time":"2017-10-18T20:00:00Z","location":"JLA"}
-{"id":"6dd2cb2c-b448-11e7-9a1f-cf3c7bc7a5d5","availability":["1","2"],"time":"2017-10-20T20:00:00Z","location":"JLA"}
-{"id":"7c3299fe-b448-11e7-8c0c-173f78b24d56","availability":["1","2"],"time":"2017-10-10T20:00:00Z","location":"JLA"}
-{"id":"b9bcc6c2-b50c-11e7-8afd-67c695d65f55","availability":["3"],"time":"2017-10-10T09:00:00Z","location":"CP-1"}
-{"id":"dd1b82ac-b50c-11e7-bd4b-9bba2d8d5403","availability":["3"],"time":"2017-10-11T10:00:00Z","location":"CP-2"}
-{"id":"f63505ba-b50c-11e7-8502-73ca960722f2","availability":["3"],"time":"2017-10-25T20:00:00Z","location":"CP-1"}
+{"id":"2302442","time":"2017-10-14T13:30:00Z","location":"Kanata Rec Center - Pad B","availability":["1705"]}
+{"id":"2302007","time":"2017-10-14T15:30:00Z","location":"Carleton Place Arena 2","availability":["7465"]}
+{"id":"2303747","time":"2017-10-14T17:00:00Z","location":"Kanata Rec Center - Pad A","availability":["1701"]}
+{"id":"2301994","time":"2017-10-14T20:30:00Z","location":"SFCMC","availability":["6631"]}
+{"id":"2302002","time":"2017-10-15T14:20:00Z","location":"SFYA","availability":["6631"]}
+{"id":"2302463","time":"2017-10-15T16:30:00Z","location":"North Grenville Municipal Cent","availability":["5901"]}
+{"id":"2304459","time":"2017-10-15T18:00:00Z","location":"Goulbourn Recreation Complex A","availability":["4901"]}
+{"id":"2304177","time":"2017-10-15T20:00:00Z","location":"Goulbourn Recreation Complex A","availability":["4902"]}
+{"id":"2303419","time":"2017-10-21T13:30:00Z","location":"Carleton Place Arena 2","availability":["7466"]}
+{"id":"2302031","time":"2017-10-21T14:30:00Z","location":"Carleton Place Arena 2","availability":["7465"]}
+{"id":"2304180","time":"2017-10-21T17:15:00Z","location":"Goulbourn Recreation Complex B","availability":["4902"]}
+{"id":"2303748","time":"2017-10-21T19:00:00Z","location":"Bell Sensplex Palladium Insura","availability":["1701"]}
+{"id":"2303588","time":"2017-10-22T14:00:00Z","location":"Bell Sensplex Canadian Tire","availability":["1703"]}
+{"id":"2301653","time":"2017-10-22T19:00:00Z","location":"Bell Sensplex Palladium Insura","availability":["1704"]}
+{"id":"2295288","time":"2017-10-22T20:00:00Z","location":"Bell Sensplex Palladium Insura","availability":["1702"]}
+{"id":"2302696","time":"2017-10-28T13:00:00Z","location":"Carleton University Ice House","availability":["1705"]}
+{"id":"2303422","time":"2017-10-28T14:30:00Z","location":"Carleton Place Arena 2","availability":["7466"]}
+{"id":"2302482","time":"2017-10-28T17:00:00Z","location":"North Grenville Municipal Cent","availability":["5901"]}
+{"id":"2305705","time":"2017-10-29T13:15:00Z","location":"Bell Sensplex Scotia Bank","availability":["1701"]}
+{"id":"2302490","time":"2017-10-29T13:30:00Z","location":"North Grenville Municipal Cent","availability":["5901"]}
+{"id":"2303413","time":"2017-10-29T14:00:00Z","location":"Bell Sensplex Palladium Insura","availability":["1703"]}
+{"id":"2301655","time":"2017-10-29T14:15:00Z","location":"Bell Sensplex Scotia Bank","availability":["1704"]}
+{"id":"2303461","time":"2017-11-04T13:30:00Z","location":"Carleton Place Arena 2","availability":["7466"]}
+{"id":"2303749","time":"2017-11-04T13:30:00Z","location":"Kanata Rec Center - Pad B","availability":["1701"]}
+{"id":"2302028","time":"2017-11-04T14:30:00Z","location":"Carleton Place Arena 2","availability":["7465"]}
+{"id":"2302006","time":"2017-11-04T18:30:00Z","location":"SFCMC","availability":["6631"]}
+{"id":"2304172","time":"2017-11-04T21:15:00Z","location":"Goulbourn Recreation Complex B","availability":["4902"]}
+{"id":"2302012","time":"2017-11-05T14:20:00Z","location":"SFYA","availability":["6631"]}
+{"id":"2301658","time":"2017-11-05T19:00:00Z","location":"BCKA","availability":["1704"]}
+{"id":"2302455","time":"2017-11-08T23:15:00Z","location":"Goulbourn Recreation Complex B","availability":["1705"]}
+{"id":"2303771","time":"2017-11-11T13:30:00Z","location":"Kanata Rec Center - Pad B","availability":["1703"]}
+{"id":"2301660","time":"2017-11-11T14:30:00Z","location":"Kanata Rec Center - Pad B","availability":["1704"]}
+{"id":"2302471","time":"2017-11-11T15:30:00Z","location":"Kanata Rec Center - Pad B","availability":["1705"]}
+{"id":"2302021","time":"2017-11-12T14:20:00Z","location":"SFYA","availability":["6631"]}
+{"id":"2295294","time":"2017-11-12T15:15:00Z","location":"Goulbourn Recreation Complex B","availability":["1702"]}
+{"id":"2303416","time":"2017-11-12T22:00:00Z","location":"BCKA","availability":["1703"]}
+{"id":"2302011","time":"2017-11-18T14:30:00Z","location":"Carleton Place Arena 2","availability":["7465"]}
+{"id":"2302480","time":"2017-11-18T16:00:00Z","location":"Barrhaven Minto Recreation Com","availability":["1705"]}
+{"id":"2302497","time":"2017-11-18T18:00:00Z","location":"North Grenville Municipal Cent","availability":["5901"]}
+{"id":"2302023","time":"2017-11-19T14:20:00Z","location":"SFYA","availability":["6631"]}
+{"id":"2302503","time":"2017-11-19T14:30:00Z","location":"North Grenville Municipal Cent","availability":["5901"]}
+{"id":"2295297","time":"2017-11-19T17:15:00Z","location":"Goulbourn Recreation Complex B","availability":["1702"]}
+{"id":"2304457","time":"2017-11-19T19:00:00Z","location":"Goulbourn Recreation Complex A","availability":["4901"]}
+{"id":"2304171","time":"2017-11-19T20:00:00Z","location":"Goulbourn Recreation Complex A","availability":["4902"]}
+{"id":"2302484","time":"2017-11-25T14:00:00Z","location":"Carleton University Ice House","availability":["1705"]}
+{"id":"2302038","time":"2017-11-25T14:30:00Z","location":"Carleton Place Arena 2","availability":["7465"]}
+{"id":"2303425","time":"2017-11-25T15:30:00Z","location":"Carleton Place Arena 2","availability":["7466"]}
+{"id":"2295537","time":"2017-11-26T14:15:00Z","location":"Goulbourn Recreation Complex B","availability":["1702"]}
+{"id":"2304452","time":"2017-11-26T19:00:00Z","location":"Goulbourn Recreation Complex A","availability":["4901"]}
+{"id":"2301661","time":"2017-11-26T19:00:00Z","location":"Bell Sensplex Canadian Tire","availability":["1704"]}
+{"id":"2302488","time":"2017-11-26T20:00:00Z","location":"Bell Sensplex Canadian Tire","availability":["1705"]}
+{"id":"2304184","time":"2017-11-26T20:00:00Z","location":"Goulbourn Recreation Complex A","availability":["4902"]}
+{"id":"2303797","time":"2017-11-27T23:00:00Z","location":"Bell Sensplex Palladium Insura","availability":["1703"]}
+{"id":"2302047","time":"2017-11-28T23:30:00Z","location":"Carleton Place Arena 2","availability":["7465"]}
+{"id":"2304331","time":"2017-11-30T00:00:00Z","location":"JACA","availability":["4901"]}
+{"id":"2303750","time":"2017-12-02T14:30:00Z","location":"Kanata Rec Center - Pad B","availability":["1701"]}
+{"id":"2295427","time":"2017-12-02T17:00:00Z","location":"Barrhaven Minto Recreation Com","availability":["1702"]}
+{"id":"2302030","time":"2017-12-02T20:30:00Z","location":"SFCMC","availability":["6631"]}
+{"id":"2303752","time":"2017-12-03T21:00:00Z","location":"BCKA","availability":["1701"]}
+{"id":"2303423","time":"2017-12-05T23:30:00Z","location":"Carleton Place Arena 2","availability":["7466"]}
+{"id":"2303753","time":"2017-12-09T14:00:00Z","location":"Carleton University Ice House","availability":["1701"]}
+{"id":"2302495","time":"2017-12-09T15:00:00Z","location":"Carleton University Ice House","availability":["1705"]}
+{"id":"2303460","time":"2017-12-09T15:30:00Z","location":"Carleton Place Arena 2","availability":["7466"]}
+{"id":"2295428","time":"2017-12-09T16:00:00Z","location":"Carleton University Ice House","availability":["1702"]}
+{"id":"2304458","time":"2017-12-09T21:15:00Z","location":"Goulbourn Recreation Complex B","availability":["4901"]}
+{"id":"2304174","time":"2017-12-09T22:15:00Z","location":"Goulbourn Recreation Complex B","availability":["4902"]}
+{"id":"2303428","time":"2017-12-16T14:30:00Z","location":"Carleton Place Arena 2","availability":["7466"]}
+{"id":"2302512","time":"2017-12-16T14:30:00Z","location":"North Grenville Municipal Cent","availability":["5901"]}
+{"id":"2295491","time":"2017-12-16T15:30:00Z","location":"Kanata Rec Center - Pad B","availability":["1702"]}
+{"id":"2302013","time":"2017-12-16T15:30:00Z","location":"Carleton Place Arena 2","availability":["7465"]}
+{"id":"2301663","time":"2017-12-16T17:30:00Z","location":"Kanata Rec Center - Pad B","availability":["1704"]}
+{"id":"2304182","time":"2017-12-16T23:15:00Z","location":"Goulbourn Recreation Complex B","availability":["4902"]}
+{"id":"2302036","time":"2017-12-17T14:20:00Z","location":"SFYA","availability":["6631"]}
+{"id":"2302508","time":"2017-12-17T23:00:00Z","location":"MLACA","availability":["1705"]}
+{"id":"2303755","time":"2017-12-17T23:00:00Z","location":"BCKA","availability":["1701"]}
+{"id":"2304453","time":"2018-01-06T14:30:00Z","location":"Kanata Rec Center - Pad B","availability":["4901"]}
+{"id":"2295833","time":"2018-01-06T16:00:00Z","location":"Barrhaven Minto Recreation Com","availability":["1702"]}
+{"id":"2301664","time":"2018-01-06T17:00:00Z","location":"Barrhaven Minto Recreation Com","availability":["1704"]}
+{"id":"2304454","time":"2018-01-07T21:00:00Z","location":"Goulbourn Recreation Complex A","availability":["4901"]}
+{"id":"2303462","time":"2018-01-12T00:00:00Z","location":"ALMONTE","availability":["7466"]}
+{"id":"2302034","time":"2018-01-12T23:30:00Z","location":"Carleton Place Arena 1","availability":["7465"]}
+{"id":"2302519","time":"2018-01-13T14:00:00Z","location":"North Grenville Municipal Cent","availability":["5901"]}
+{"id":"2303463","time":"2018-01-13T14:30:00Z","location":"Carleton Place Arena 2","availability":["7466"]}
+{"id":"2302043","time":"2018-01-13T19:30:00Z","location":"SFCMC","availability":["6631"]}
+{"id":"2302528","time":"2018-01-14T18:30:00Z","location":"North Grenville Municipal Cent","availability":["5901"]}
+{"id":"2303758","time":"2018-01-14T19:00:00Z","location":"BCKA","availability":["1701"]}
+{"id":"2304456","time":"2018-01-14T19:00:00Z","location":"Goulbourn Recreation Complex A","availability":["4901"]}
+{"id":"2303799","time":"2018-01-14T21:00:00Z","location":"BCKA","availability":["1703"]}
+{"id":"2301666","time":"2018-01-14T22:00:00Z","location":"BCKA","availability":["1704"]}
+{"id":"2303800","time":"2018-01-20T15:30:00Z","location":"Kanata Rec Center - Pad B","availability":["1703"]}
+{"id":"2304455","time":"2018-01-20T21:15:00Z","location":"Goulbourn Recreation Complex B","availability":["4901"]}
+{"id":"2304179","time":"2018-01-20T22:15:00Z","location":"Goulbourn Recreation Complex B","availability":["4902"]}
+{"id":"2295440","time":"2018-01-21T13:15:00Z","location":"Goulbourn Recreation Complex B","availability":["1702"]}
+{"id":"2303775","time":"2018-01-21T14:15:00Z","location":"Goulbourn Recreation Complex B","availability":["1703"]}
+{"id":"2301669","time":"2018-01-21T15:15:00Z","location":"Goulbourn Recreation Complex B","availability":["1704"]}
+{"id":"2302534","time":"2018-01-21T16:30:00Z","location":"North Grenville Municipal Cent","availability":["5901"]}
+{"id":"2302521","time":"2018-01-21T19:00:00Z","location":"Kanata Rec Center - Pad A","availability":["1705"]}
+{"id":"2303459","time":"2018-01-23T23:30:00Z","location":"Carleton Place Arena 2","availability":["7466"]}
+{"id":"2302017","time":"2018-01-26T00:00:00Z","location":"ALMONTE","availability":["7465"]}
+{"id":"2303802","time":"2018-01-27T16:00:00Z","location":"Carleton University Ice House","availability":["1703"]}
+{"id":"2302050","time":"2018-01-27T21:20:00Z","location":"SFYA","availability":["6631"]}
+{"id":"2302538","time":"2018-01-28T14:00:00Z","location":"North Grenville Municipal Cent","availability":["5901"]}
+{"id":"2304328","time":"2018-01-28T14:15:00Z","location":"Goulbourn Recreation Complex B","availability":["1701"]}
+{"id":"2295544","time":"2018-01-28T15:15:00Z","location":"Goulbourn Recreation Complex B","availability":["1702"]}
+{"id":"2303777","time":"2018-01-28T19:00:00Z","location":"Kanata Rec Center - Pad A","availability":["1703"]}
+{"id":"2301671","time":"2018-01-28T20:00:00Z","location":"Kanata Rec Center - Pad A","availability":["1704"]}
+{"id":"2304461","time":"2018-01-28T20:00:00Z","location":"Goulbourn Recreation Complex A","availability":["4901"]}
+{"id":"2302022","time":"2018-01-30T23:30:00Z","location":"Carleton Place Arena 2","availability":["7465"]}

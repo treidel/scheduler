@@ -1,14 +1,47 @@
 [
 	{
-		"id" : "1",
-		"name" : "Goulbourn Rockets Novice HL1"
+		"id" : "7465",
+		"name" : "CARLETON PLACE CYCLONES NH BLUE"
 	},
 	{
-		"id" : "2",
-		"name" : "Goulbourn Rockets Novice HL2"
+		"id" : "4902",
+		"name" : "GOULBOURN ROCKETS N2"
 	},
 	{
-		"id" : "3",
-		"name" : "Carleton Place Cyclones Novice HL"
+		"id" : "6631",
+		"name" : "SMITHS FALLS CUBS"
+	},
+	{
+		"id" : "7466",
+		"name" : "CARLETON PLACE CYCLONES NH WHITE"
+	},
+	{
+		"id" : "5901",
+		"name" : "KEMPTVILLE STORM N1"
+	},
+	{
+		"id" : "4901",
+		"name" : "GOULBOURN ROCKETS N1"
+	},
+	{
+		"id" : "1701",
+		"name" : "KANATA RANGERS NOV-1"
+	},
+	{
+		"id" : "1704",
+		"name" : "KANATA RANGERS NOV-4"
+	},
+	{
+		"id" : "1703",
+		"name" : "KANATA RANGERS NOV-3"
+	},
+	{
+		"id" : "1702",
+		"name" : "KANATA RANGERS NOV-2"
+	},
+	{
+		"id" : "1705",
+		"name" : "KANATA RANGERS Nov-5"
 	}
+
 ]
