@@ -12,6 +12,7 @@ import org.apache.hadoop.mapred.OutputCollector;
 import org.apache.hadoop.mapred.Reporter;
 
 import com.jebussystems.leaguescheduler.entities.ScheduleEntry;
+import com.jebussystems.leaguescheduler.entities.Serializer;
 import com.jebussystems.leaguescheduler.entities.TeamSchedule;
 
 public class HomeGameSchedulerMapper extends MapReduceBase implements Mapper<LongWritable, Text, Text, Text> {
@@ -22,7 +23,7 @@ public class HomeGameSchedulerMapper extends MapReduceBase implements Mapper<Lon
 		// get the raw line
 		String line = value.toString();
 		// parse to an visitor schedule
-		TeamSchedule visitorSchedule = TeamSchedule.GSON.fromJson(line, TeamSchedule.class);
+		TeamSchedule visitorSchedule = Serializer.GSON.fromJson(line, TeamSchedule.class);
 		// iterate through and get a list of all the teams involved
 		Set<String> teams = new HashSet<>(visitorSchedule.getScheduleEntries().size());
 		for (ScheduleEntry scheduleEntryEntity : visitorSchedule.getScheduleEntries()) {

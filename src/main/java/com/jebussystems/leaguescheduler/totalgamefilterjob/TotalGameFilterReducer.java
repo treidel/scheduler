@@ -13,6 +13,7 @@ import org.apache.hadoop.mapred.OutputCollector;
 import org.apache.hadoop.mapred.Reducer;
 import org.apache.hadoop.mapred.Reporter;
 
+import com.jebussystems.leaguescheduler.entities.Serializer;
 import com.jebussystems.leaguescheduler.entities.TotalSchedule;
 import com.jebussystems.leaguescheduler.filters.NoDuplicateGameSlotsFilter;
 import com.jebussystems.leaguescheduler.filters.ScheduleFilter;
@@ -42,7 +43,7 @@ public class TotalGameFilterReducer extends MapReduceBase implements Reducer<Tex
 		Text value = values.next();
 
 		// parse to an total schedule
-		TotalSchedule schedule = TotalSchedule.GSON.fromJson(value.toString(), TotalSchedule.class);
+		TotalSchedule schedule = Serializer.GSON.fromJson(value.toString(), TotalSchedule.class);
 
 		// go through each filter and check this home schedule for exclusion criteria
 		for (ScheduleFilter<TotalSchedule> filter : this.filters) {

@@ -1,9 +1,6 @@
 package com.jebussystems.leaguescheduler.entities;
 
-import com.google.gson.Gson;
-
 public class ScheduleEntry {
-	public static final Gson GSON = new Gson();
 
 	private final String hometeam;
 	private final String awayteam;

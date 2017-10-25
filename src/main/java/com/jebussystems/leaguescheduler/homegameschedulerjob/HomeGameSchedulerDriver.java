@@ -21,6 +21,7 @@ import org.apache.hadoop.mapred.TextOutputFormat;
 import org.apache.log4j.Logger;
 
 import com.google.gson.reflect.TypeToken;
+import com.jebussystems.leaguescheduler.entities.Serializer;
 import com.jebussystems.leaguescheduler.entities.Team;
 
 public class HomeGameSchedulerDriver {
@@ -71,10 +72,10 @@ public class HomeGameSchedulerDriver {
 		Reader reader = new FileReader(new File(teamsFile));
 		Type collectionType = new TypeToken<Collection<Team>>() {
 		}.getType();
-		Collection<Team> teams = Team.GSON.fromJson(reader, collectionType);
+		Collection<Team> teams = Serializer.GSON.fromJson(reader, collectionType);
 
 		// store the list of teams in the job context
-		conf.set(Team.TEAMS_PROPERTY, Team.GSON.toJson(teams));
+		conf.set(Team.TEAMS_PROPERTY, Serializer.GSON.toJson(teams));
 
 		// configure the mapper + reducer classes
 		conf.setMapperClass(HomeGameSchedulerMapper.class);

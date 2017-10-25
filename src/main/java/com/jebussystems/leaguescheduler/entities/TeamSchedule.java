@@ -2,10 +2,7 @@ package com.jebussystems.leaguescheduler.entities;
 
 import java.util.Collection;
 
-import com.google.gson.Gson;
-
 public class TeamSchedule extends Schedule {
-	public static final Gson GSON = new Gson();
 
 	private final String team;
 

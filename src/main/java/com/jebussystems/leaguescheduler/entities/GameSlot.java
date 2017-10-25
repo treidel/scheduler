@@ -3,10 +3,7 @@ package com.jebussystems.leaguescheduler.entities;
 import java.util.Collection;
 import java.util.Date;
 
-import com.google.gson.Gson;
-
 public class GameSlot implements Comparable<GameSlot> {
-	public static final Gson GSON = new Gson();
 
 	private final String id;
 	private final Collection<String> availability;

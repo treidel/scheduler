@@ -22,6 +22,7 @@ import org.apache.hadoop.mapred.Reporter;
 
 import com.google.gson.reflect.TypeToken;
 import com.jebussystems.leaguescheduler.entities.ScheduleEntry;
+import com.jebussystems.leaguescheduler.entities.Serializer;
 import com.jebussystems.leaguescheduler.entities.Team;
 import com.jebussystems.leaguescheduler.entities.TeamSchedule;
 
@@ -36,7 +37,7 @@ public class HomeGameSchedulerReducer extends MapReduceBase implements Reducer<T
 		// parse the teams
 		Type collectionType = new TypeToken<Collection<Team>>() {
 		}.getType();
-		Collection<Team> teamEntities = Team.GSON.fromJson(job.get(Team.TEAMS_PROPERTY), collectionType);
+		Collection<Team> teamEntities = Serializer.GSON.fromJson(job.get(Team.TEAMS_PROPERTY), collectionType);
 		// setup the teams lookup
 		this.teamLookup = new HashMap<>();
 		// populate the list
@@ -57,7 +58,7 @@ public class HomeGameSchedulerReducer extends MapReduceBase implements Reducer<T
 		// go through all times offered
 		while (values.hasNext()) {
 			// decode the game slot
-			TeamSchedule visitorSchedule = TeamSchedule.GSON.fromJson(values.next().toString(), TeamSchedule.class);
+			TeamSchedule visitorSchedule = Serializer.GSON.fromJson(values.next().toString(), TeamSchedule.class);
 			Collection<TeamSchedule> visitorSchedules = index.get(visitorSchedule.getTeam());
 			if (null == visitorSchedules) {
 				visitorSchedules = new LinkedList<>();
@@ -88,12 +89,12 @@ public class HomeGameSchedulerReducer extends MapReduceBase implements Reducer<T
 				// sort the schedule entries
 				homeScheduleEntries
 						.sort((left, right) -> left.getGameSlot().getId().compareTo(right.getGameSlot().getId()));
-				String hashText = TeamSchedule.GSON.toJson(homeScheduleEntries);
+				String hashText = Serializer.GSON.toJson(homeScheduleEntries);
 				// create the home schedule
 				TeamSchedule homeSchedule = new TeamSchedule(DigestUtils.md5Hex(hashText), team.getId(),
 						homeScheduleEntries);
 				// serialize and emit
-				String json = TeamSchedule.GSON.toJson(homeSchedule);
+				String json = Serializer.GSON.toJson(homeSchedule);
 				output.collect(null, new Text(json));
 			};
 

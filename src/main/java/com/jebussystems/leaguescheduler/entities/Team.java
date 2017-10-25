@@ -1,12 +1,8 @@
 package com.jebussystems.leaguescheduler.entities;
 
-import com.google.gson.Gson;
-
 public class Team implements Comparable<Team> {
 
 	public static final String TEAMS_PROPERTY = "TEAMS";
-
-	public static final Gson GSON = new Gson();
 
 	private final String id;
 	private final String name;

@@ -9,7 +9,7 @@ import org.apache.hadoop.mapred.Mapper;
 import org.apache.hadoop.mapred.OutputCollector;
 import org.apache.hadoop.mapred.Reporter;
 
-import com.jebussystems.leaguescheduler.entities.ScheduleEntry;
+import com.jebussystems.leaguescheduler.entities.Serializer;
 import com.jebussystems.leaguescheduler.entities.TeamSchedule;
 
 public class HomeGameFilterMapper extends MapReduceBase implements Mapper<LongWritable, Text, Text, Text> {
@@ -20,7 +20,7 @@ public class HomeGameFilterMapper extends MapReduceBase implements Mapper<LongWr
 		// get the raw line
 		String line = value.toString();
 		// parse to an visitor schedule
-		TeamSchedule visitorSchedule = ScheduleEntry.GSON.fromJson(line, TeamSchedule.class);
+		TeamSchedule visitorSchedule = Serializer.GSON.fromJson(line, TeamSchedule.class);
 		// emit the schedule
 		output.collect(new Text(visitorSchedule.getId()), value);
 	}

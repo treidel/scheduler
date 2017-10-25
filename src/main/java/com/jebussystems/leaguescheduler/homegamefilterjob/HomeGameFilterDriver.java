@@ -21,6 +21,7 @@ import org.apache.hadoop.mapred.TextOutputFormat;
 import org.apache.log4j.Logger;
 
 import com.google.gson.reflect.TypeToken;
+import com.jebussystems.leaguescheduler.entities.Serializer;
 import com.jebussystems.leaguescheduler.entities.Team;
 import com.jebussystems.leaguescheduler.entities.TeamBlackout;
 
@@ -76,20 +77,20 @@ public class HomeGameFilterDriver {
 		Reader teamsReader = new FileReader(new File(teamsFile));
 		Type teamsCollectionType = new TypeToken<Collection<Team>>() {
 		}.getType();
-		Collection<Team> teams = Team.GSON.fromJson(teamsReader, teamsCollectionType);
+		Collection<Team> teams = Serializer.GSON.fromJson(teamsReader, teamsCollectionType);
 
 		// store the list of teams in the job context
-		conf.set(Team.TEAMS_PROPERTY, Team.GSON.toJson(teams));
+		conf.set(Team.TEAMS_PROPERTY, Serializer.GSON.toJson(teams));
 
 		// read in and parse the list of blackouts
 		if (null != blackoutsFile) {
 			Reader blackoutsReader = new FileReader(new File(blackoutsFile));
 			Type blackoutsCollectionType = new TypeToken<Collection<TeamBlackout>>() {
 			}.getType();
-			Collection<TeamBlackout> blackouts = Team.GSON.fromJson(blackoutsReader, blackoutsCollectionType);
+			Collection<TeamBlackout> blackouts = Serializer.GSON.fromJson(blackoutsReader, blackoutsCollectionType);
 
 			// store the list of teams in the job context
-			conf.set(TeamBlackout.TEAM_BLACKOUTS_PROPERTY, Team.GSON.toJson(blackouts));
+			conf.set(TeamBlackout.TEAM_BLACKOUTS_PROPERTY, Serializer.GSON.toJson(blackouts));
 		}
 
 		// configure the mapper + reducer classes

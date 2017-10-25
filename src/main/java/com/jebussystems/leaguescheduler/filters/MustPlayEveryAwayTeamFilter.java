@@ -12,6 +12,7 @@ import org.apache.hadoop.mapred.JobConf;
 import com.google.gson.reflect.TypeToken;
 import com.jebussystems.leaguescheduler.entities.TeamSchedule;
 import com.jebussystems.leaguescheduler.entities.ScheduleEntry;
+import com.jebussystems.leaguescheduler.entities.Serializer;
 import com.jebussystems.leaguescheduler.entities.Team;
 
 public class MustPlayEveryAwayTeamFilter extends ScheduleFilterBase<TeamSchedule>
@@ -23,7 +24,7 @@ public class MustPlayEveryAwayTeamFilter extends ScheduleFilterBase<TeamSchedule
 		// parse the teams
 		Type collectionType = new TypeToken<Collection<Team>>() {
 		}.getType();
-		Collection<Team> teamEntities = Team.GSON.fromJson(job.get(Team.TEAMS_PROPERTY), collectionType);
+		Collection<Team> teamEntities = Serializer.GSON.fromJson(job.get(Team.TEAMS_PROPERTY), collectionType);
 		// setup the teams lookup
 		this.teamLookup = new HashMap<>();
 		// populate the list

@@ -22,8 +22,8 @@ import org.apache.hadoop.mapred.Reporter;
 
 import com.google.gson.reflect.TypeToken;
 import com.jebussystems.leaguescheduler.entities.GameOffer;
-import com.jebussystems.leaguescheduler.entities.GameSlot;
 import com.jebussystems.leaguescheduler.entities.ScheduleEntry;
+import com.jebussystems.leaguescheduler.entities.Serializer;
 import com.jebussystems.leaguescheduler.entities.Team;
 import com.jebussystems.leaguescheduler.entities.TeamSchedule;
 
@@ -38,7 +38,7 @@ public class VisitorGameSchedulerReducer extends MapReduceBase implements Reduce
 		// parse the teams
 		Type collectionType = new TypeToken<Collection<Team>>() {
 		}.getType();
-		Collection<Team> teamEntities = Team.GSON.fromJson(job.get(Team.TEAMS_PROPERTY), collectionType);
+		Collection<Team> teamEntities = Serializer.GSON.fromJson(job.get(Team.TEAMS_PROPERTY), collectionType);
 		// setup the teams lookup
 		this.teamLookup = new HashMap<>();
 		// populate the list
@@ -58,7 +58,7 @@ public class VisitorGameSchedulerReducer extends MapReduceBase implements Reduce
 		// create a list of available game offers
 		List<GameOffer> availabilityLists = new LinkedList<>();
 		while (true == values.hasNext()) {
-			GameOffer gameoffer = GameSlot.GSON.fromJson(values.next().toString(), GameOffer.class);
+			GameOffer gameoffer = Serializer.GSON.fromJson(values.next().toString(), GameOffer.class);
 			availabilityLists.add(gameoffer);
 		}
 		// iterate through all possible combinations
@@ -76,11 +76,11 @@ public class VisitorGameSchedulerReducer extends MapReduceBase implements Reduce
 			// create a list to sort and sort by game slot id
 			List<ScheduleEntry> scheduleEntries = new LinkedList<>(Arrays.asList(result));
 			scheduleEntries.sort((left, right) -> left.getGameSlot().getId().compareTo(right.getGameSlot().getId()));
-			String hashText = TeamSchedule.GSON.toJson(scheduleEntries);
+			String hashText = Serializer.GSON.toJson(scheduleEntries);
 			// create the visiting schedule
 			TeamSchedule schedule = new TeamSchedule(DigestUtils.md5Hex(hashText), team, scheduleEntries);
 			// serialize the schedule
-			String json = TeamSchedule.GSON.toJson(schedule);
+			String json = Serializer.GSON.toJson(schedule);
 			// emit
 			Text value = new Text(json);
 			output.collect(NullWritable.get(), value);

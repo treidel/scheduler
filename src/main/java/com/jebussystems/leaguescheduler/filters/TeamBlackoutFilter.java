@@ -8,7 +8,7 @@ import org.apache.hadoop.mapred.JobConf;
 
 import com.google.gson.reflect.TypeToken;
 import com.jebussystems.leaguescheduler.entities.ScheduleEntry;
-import com.jebussystems.leaguescheduler.entities.Team;
+import com.jebussystems.leaguescheduler.entities.Serializer;
 import com.jebussystems.leaguescheduler.entities.TeamBlackout;
 import com.jebussystems.leaguescheduler.entities.TeamSchedule;
 
@@ -25,7 +25,7 @@ public class TeamBlackoutFilter extends ScheduleFilterBase<TeamSchedule> impleme
 			Type collectionType = new TypeToken<Collection<TeamBlackout>>() {
 			}.getType();
 			// store the list
-			this.blackoutList = Team.GSON.fromJson(json, collectionType);
+			this.blackoutList = Serializer.GSON.fromJson(json, collectionType);
 
 		}
 	}

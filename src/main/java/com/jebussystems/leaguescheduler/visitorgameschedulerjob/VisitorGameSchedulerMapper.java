@@ -18,6 +18,7 @@ import org.apache.hadoop.mapred.Reporter;
 import com.google.gson.reflect.TypeToken;
 import com.jebussystems.leaguescheduler.entities.GameOffer;
 import com.jebussystems.leaguescheduler.entities.GameSlot;
+import com.jebussystems.leaguescheduler.entities.Serializer;
 import com.jebussystems.leaguescheduler.entities.Team;
 
 public class VisitorGameSchedulerMapper extends MapReduceBase implements Mapper<LongWritable, Text, Text, Text> {
@@ -32,7 +33,7 @@ public class VisitorGameSchedulerMapper extends MapReduceBase implements Mapper<
 		Type collectionType = new TypeToken<Collection<Team>>() {
 		}.getType();
 		String json = job.get(Team.TEAMS_PROPERTY);
-		Collection<Team> teamEntities = Team.GSON.fromJson(json, collectionType);
+		Collection<Team> teamEntities = Serializer.GSON.fromJson(json, collectionType);
 		// setup the teams lookup
 		this.teamLookup = new HashMap<>();
 		// populate the list
@@ -47,7 +48,7 @@ public class VisitorGameSchedulerMapper extends MapReduceBase implements Mapper<
 		// get the raw line
 		String line = value.toString();
 		// parse to an object
-		GameSlot gameslot = GameSlot.GSON.fromJson(line, GameSlot.class);
+		GameSlot gameslot = Serializer.GSON.fromJson(line, GameSlot.class);
 		// iterate for all teams this gameslot is available to
 		for (String id : gameslot.getAvailability()) {
 			// validate the team availability values
@@ -57,7 +58,7 @@ public class VisitorGameSchedulerMapper extends MapReduceBase implements Mapper<
 			// create the game offer
 			GameOffer gameOffer = new GameOffer(id, gameslot);
 			// create the output value
-			String json = GameSlot.GSON.toJson(gameOffer);
+			String json = Serializer.GSON.toJson(gameOffer);
 			Text outputValue = new Text(json);
 			// publish this availability to all teams including those that it's available to
 			for (Team team : this.teamLookup.values()) {

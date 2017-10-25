@@ -21,6 +21,7 @@ import org.apache.hadoop.mapred.Reporter;
 
 import com.google.gson.reflect.TypeToken;
 import com.jebussystems.leaguescheduler.entities.ScheduleEntry;
+import com.jebussystems.leaguescheduler.entities.Serializer;
 import com.jebussystems.leaguescheduler.entities.Team;
 import com.jebussystems.leaguescheduler.entities.TeamSchedule;
 import com.jebussystems.leaguescheduler.entities.TotalSchedule;
@@ -37,7 +38,7 @@ public class TotalGameSchedulerReducer extends MapReduceBase
 		// parse the teams
 		Type collectionType = new TypeToken<Collection<Team>>() {
 		}.getType();
-		Collection<Team> teamEntities = Team.GSON.fromJson(job.get(Team.TEAMS_PROPERTY), collectionType);
+		Collection<Team> teamEntities = Serializer.GSON.fromJson(job.get(Team.TEAMS_PROPERTY), collectionType);
 		// setup the teams lookup
 		this.teamLookup = new HashMap<>();
 		// populate the list
@@ -53,7 +54,7 @@ public class TotalGameSchedulerReducer extends MapReduceBase
 		// go through all schedules
 		while (values.hasNext()) {
 			// decode the game slot
-			TeamSchedule schedule = TeamSchedule.GSON.fromJson(values.next().toString(), TeamSchedule.class);
+			TeamSchedule schedule = Serializer.GSON.fromJson(values.next().toString(), TeamSchedule.class);
 			Collection<TeamSchedule> schedules = index.get(schedule.getTeam());
 			if (null == schedules) {
 				schedules = new LinkedList<>();
@@ -80,11 +81,11 @@ public class TotalGameSchedulerReducer extends MapReduceBase
 				// sort the schedule entries
 				scheduleEntries
 						.sort((left, right) -> left.getGameSlot().getId().compareTo(right.getGameSlot().getId()));
-				String hashText = TeamSchedule.GSON.toJson(scheduleEntries);
+				String hashText = Serializer.GSON.toJson(scheduleEntries);
 				// create the new total schedule
 				TotalSchedule schedule = new TotalSchedule(DigestUtils.md5Hex(hashText), scheduleEntries);
 				// serialize and emit
-				String json = TotalSchedule.GSON.toJson(schedule);
+				String json = Serializer.GSON.toJson(schedule);
 				output.collect(null, new Text(json));
 			};
 

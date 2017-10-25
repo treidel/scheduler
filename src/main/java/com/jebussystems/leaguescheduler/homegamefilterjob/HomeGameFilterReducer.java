@@ -13,6 +13,7 @@ import org.apache.hadoop.mapred.OutputCollector;
 import org.apache.hadoop.mapred.Reducer;
 import org.apache.hadoop.mapred.Reporter;
 
+import com.jebussystems.leaguescheduler.entities.Serializer;
 import com.jebussystems.leaguescheduler.entities.TeamSchedule;
 import com.jebussystems.leaguescheduler.filters.MustPlayEveryAwayTeamFilter;
 import com.jebussystems.leaguescheduler.filters.OneGamePerAwayTeamFilter;
@@ -49,7 +50,7 @@ public class HomeGameFilterReducer extends MapReduceBase implements Reducer<Text
 		Text value = values.next();
 
 		// parse to an home schedule
-		TeamSchedule schedule = TeamSchedule.GSON.fromJson(value.toString(), TeamSchedule.class);
+		TeamSchedule schedule = Serializer.GSON.fromJson(value.toString(), TeamSchedule.class);
 
 		// go through each filter and check this home schedule for exclusion criteria
 		for (ScheduleFilter<TeamSchedule> filter : this.filters) {
