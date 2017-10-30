@@ -32,6 +32,9 @@ public class VisitorGameSchedulerDriver {
 	private static final String INPUT_PARAM = "input";
 	private static final String OUTPUT_PARAM = "output";
 	private static final String TEAMS_PARAM = "teams";
+	private static final String MAXIMUM_GAME_PER_OPPONENT_PARAM = "maxgames";
+
+	static final String MAXIMUM_GAMES_PER_OPPONENT_PROPERTY = "MAXIMUM_GAME_COUNT";
 
 	public static void main(String[] args) throws Exception {
 
@@ -40,6 +43,8 @@ public class VisitorGameSchedulerDriver {
 		options.addOption(INPUT_PARAM, true, "input file(s)");
 		options.addOption(OUTPUT_PARAM, true, "output folder");
 		options.addOption(TEAMS_PARAM, true, "JSON file containing the input teams");
+		options.addOption(MAXIMUM_GAME_PER_OPPONENT_PARAM, true,
+				"maximum number of games played against each opponent");
 
 		// parse the comand line
 		CommandLineParser parser = new GnuParser();
@@ -62,6 +67,9 @@ public class VisitorGameSchedulerDriver {
 			return;
 		}
 
+		// get max games count
+		String maximumGameCount = cmd.getOptionValue(MAXIMUM_GAME_PER_OPPONENT_PARAM);
+
 		// create the job configuraton
 		JobConf conf = new JobConf(VisitorGameSchedulerDriver.class);
 		// set the basic job info
@@ -77,6 +85,12 @@ public class VisitorGameSchedulerDriver {
 
 		// store the list of teams in the job context
 		conf.set(Team.TEAMS_PROPERTY, Serializer.GSON.toJson(teams));
+
+		// store the min/max number of games if provided
+
+		if (null != maximumGameCount) {
+			conf.set(MAXIMUM_GAMES_PER_OPPONENT_PROPERTY, maximumGameCount);
+		}
 
 		// configure the mapper + reducer classes
 		conf.setMapperClass(VisitorGameSchedulerMapper.class);
