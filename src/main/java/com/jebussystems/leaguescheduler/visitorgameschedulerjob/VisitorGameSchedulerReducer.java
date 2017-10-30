@@ -32,16 +32,36 @@ import com.jebussystems.leaguescheduler.entities.ScheduleEntry;
 import com.jebussystems.leaguescheduler.entities.Serializer;
 import com.jebussystems.leaguescheduler.entities.Team;
 import com.jebussystems.leaguescheduler.entities.TeamSchedule;
+import com.jebussystems.leaguescheduler.filters.MustPlayEveryHomeTeamFilter;
+import com.jebussystems.leaguescheduler.filters.OneGamePerHomeTeamFilter;
+import com.jebussystems.leaguescheduler.filters.SameDayNotAllowedFilter;
+import com.jebussystems.leaguescheduler.filters.ScheduleFilter;
+import com.jebussystems.leaguescheduler.filters.ScheduleFilterBase;
+import com.jebussystems.leaguescheduler.filters.TeamBlackoutFilter;
+import com.jebussystems.leaguescheduler.filters.UniqueGameslotsFilter;
 
 public class VisitorGameSchedulerReducer extends MapReduceBase implements Reducer<Text, Text, NullWritable, Text> {
 
+	private final Collection<ScheduleFilterBase<TeamSchedule>> filters = new LinkedList<>();
 	private Map<String, Team> teamLookup = null;
 	private Integer maximumGamesPerOpponent = null;
+
+	public VisitorGameSchedulerReducer() {
+		this.filters.add(new UniqueGameslotsFilter());
+		this.filters.add(new OneGamePerHomeTeamFilter());
+		this.filters.add(new MustPlayEveryHomeTeamFilter());
+		this.filters.add(new SameDayNotAllowedFilter());
+		this.filters.add(new TeamBlackoutFilter());
+	}
 
 	@Override
 	public void configure(JobConf job) {
 		// do whatever the base class does
 		super.configure(job);
+		// configure our filters
+		for (ScheduleFilterBase<TeamSchedule> filter : filters) {
+			filter.configure(job);
+		}
 		// parse the teams
 		Type collectionType = new TypeToken<Collection<Team>>() {
 		}.getType();
@@ -105,15 +125,6 @@ public class VisitorGameSchedulerReducer extends MapReduceBase implements Reduce
 				scheduleEntryList
 						.sort((left, right) -> left.getGameSlot().getId().compareTo(right.getGameSlot().getId()));
 
-				// make sure there's no duplicate game slots
-				for (int i = 0; i < scheduleEntryList.size() - 1; i++) {
-					ScheduleEntry entry1 = scheduleEntryList.get(i);
-					ScheduleEntry entry2 = scheduleEntryList.get(i + 1);
-					if (true == entry1.getGameSlot().getId().equals(entry2.getGameSlot().getId())) {
-						return;
-					}
-				}
-
 				// create the schedule
 				MessageDigest digest = DigestUtils.getMd5Digest();
 				for (ScheduleEntry entry : scheduleEntryList) {
@@ -121,8 +132,16 @@ public class VisitorGameSchedulerReducer extends MapReduceBase implements Reduce
 				}
 				String hashText = Hex.encodeHexString(digest.digest());
 				TeamSchedule teamSchedule = new TeamSchedule(hashText, team.getId(), scheduleEntryList);
+
+				// evaluate the filters
+				if (false == evaluateFilters(teamSchedule)) {
+					return;
+				}
+				// create the output json and write it
 				String json = Serializer.GSON.toJson(teamSchedule);
 				output.collect(null, new Text(json));
+				// tell the framework we're alive
+				reporter.progress();
 			};
 
 		};
@@ -153,6 +172,16 @@ public class VisitorGameSchedulerReducer extends MapReduceBase implements Reduce
 			}
 		}
 		return comboOffers;
+	}
+
+	private boolean evaluateFilters(TeamSchedule schedule) {
+		// go through each filter and check this home schedule for exclusion criteria
+		for (ScheduleFilter<TeamSchedule> filter : this.filters) {
+			if (false == filter.accept(schedule)) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 }

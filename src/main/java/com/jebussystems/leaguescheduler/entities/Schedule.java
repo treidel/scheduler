@@ -1,13 +1,13 @@
 package com.jebussystems.leaguescheduler.entities;
 
-import java.util.Collection;
+import java.util.List;
 
 public abstract class Schedule {
 
 	private final String id;
-	private final Collection<ScheduleEntry> scheduleEntries;
+	private final List<ScheduleEntry> scheduleEntries;
 
-	protected Schedule(String id, Collection<ScheduleEntry> scheduleEntries) {
+	protected Schedule(String id, List<ScheduleEntry> scheduleEntries) {
 		this.id = id;
 		this.scheduleEntries = scheduleEntries;
 	}
@@ -16,7 +16,7 @@ public abstract class Schedule {
 		return id;
 	}
 
-	public Collection<ScheduleEntry> getScheduleEntries() {
+	public List<ScheduleEntry> getScheduleEntries() {
 		return scheduleEntries;
 	}
 

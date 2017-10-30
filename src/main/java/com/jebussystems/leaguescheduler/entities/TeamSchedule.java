@@ -1,12 +1,12 @@
 package com.jebussystems.leaguescheduler.entities;
 
-import java.util.Collection;
+import java.util.List;
 
 public class TeamSchedule extends Schedule {
 
 	private final String team;
 
-	public TeamSchedule(String id, String team, Collection<ScheduleEntry> scheduleEntries) {
+	public TeamSchedule(String id, String team, List<ScheduleEntry> scheduleEntries) {
 		super(id, scheduleEntries);
 		this.team = team;
 	}
